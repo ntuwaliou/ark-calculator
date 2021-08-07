@@ -1,0 +1,10 @@
+{
+    "String": {
+        "TableAttr": "屬性",
+        "TableBase": "基礎數值",
+        "TableValue": "現在數值",
+        "TablePoint": "加成點數",
+        "AttributeHealth": "生命",
+        "AttributeStamina": "耐力"
+    }
+}

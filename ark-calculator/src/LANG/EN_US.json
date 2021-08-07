@@ -1,0 +1,8 @@
+{
+    "String": {
+        "TableAttr": "Attribute",
+        "TableBase": "Basic Value",
+        "TableValue": "Current Value",
+        "TablePoint": "Points"
+    }
+}
