@@ -7,9 +7,13 @@ function StatusCal(props){
     const [point, setPoint] = useState(0)
 
     useEffect( ()=>{
-        const pts = Math.floor((value-props.data["base"])/props.data["wild_buff"])
-        setPoint(pts<0?0:pts)
-    }, [value, props.data])
+        const val = props.data["base"] + props.data["wild_buff"] * point
+        if (val < props.data["base"]){
+            console.error("val cal error: ", val, "should >= ", props.data["base"])
+            val = props.data["base"]
+        }
+        setValue(val)
+    }, [point, props.data])
 
     return (<div className="status-container">
         <span className="status-attr">{props.type}</span>
@@ -17,12 +21,12 @@ function StatusCal(props){
         <InputNumber className="status-value" value={value}
                     onChange={(val)=>{
                             if(val<props.data["base"]) val=props.data["base"]
-                            setValue(val)
+                            setPoint(Math.floor((val-props.data["base"])/props.data["wild_buff"]))
                         }}></InputNumber>
         <InputNumber className="status-point" min={0} value={point}
                     onChange={(pts)=>{
                             if(pts<0) pts = 0
-                            setValue(props.data["base"]+pts*props.data["wild_buff"])
+                            setPoint(pts)
                         }}></InputNumber>
     </div>)
 }
